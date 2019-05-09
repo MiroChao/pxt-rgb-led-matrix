@@ -9,6 +9,7 @@
     "files": [
         "README.md",
         "main.ts",
+        "enums.d.ts",
         "grove_two_rgb_led_matrix.cpp",
         "grove_two_rgb_led_matrix.h"
     ],
