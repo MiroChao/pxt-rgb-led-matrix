@@ -8,7 +8,9 @@
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "grove_two_rgb_led_matrix.cpp",
+        "grove_two_rgb_led_matrix.h"
     ],
     "testFiles": [
         "test.ts"
