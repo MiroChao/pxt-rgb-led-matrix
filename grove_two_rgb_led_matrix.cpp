@@ -13,7 +13,7 @@ namespace grove_two_rgb_led_matrix {
     //% test.min=0 test.max=5
     //% test.defl=0
     void animation(number test) {
-        matrix.displayColorAnimation(test,5000,true);
+        displayColorAnimation(test,5000,true);
     }
 }
 
