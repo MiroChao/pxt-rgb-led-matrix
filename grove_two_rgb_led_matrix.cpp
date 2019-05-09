@@ -2,6 +2,21 @@
 #include "grove_two_rgb_led_matrix.h"
 
 
+//% color=50 weight=80
+//% icon="\uf1eb"
+namespace grove_two_rgb_led_matrix { 
+    /**
+    * show animation
+    */
+    //% blockId=animation
+    //% block="show animation $ani|"
+    //% ani.min=0 ani.max=5
+    //% ani.defl=0
+    void animation(number ani) {
+        matrix.displayColorAnimation(ani,5000,true);
+    }
+}
+
 void i2cSendByte(uint8_t address, uint8_t data)
 {
 	
