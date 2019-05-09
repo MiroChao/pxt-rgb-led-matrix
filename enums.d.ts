@@ -1,4 +1,6 @@
 // Auto-generated. Do not edit.
+declare namespace grove_two_rgb_led_matrix {
+}
 
 
     declare const enum orientation_type_t

@@ -9,11 +9,11 @@ namespace grove_two_rgb_led_matrix {
     * show animation
     */
     //% blockId=animation
-    //% block="show animation $ani|"
-    //% ani.min=0 ani.max=5
-    //% ani.defl=0
-    void animation(number ani) {
-        matrix.displayColorAnimation(ani,5000,true);
+    //% block="show animation $test|"
+    //% test.min=0 test.max=5
+    //% test.defl=0
+    void animation(number test) {
+        matrix.displayColorAnimation(test,5000,true);
     }
 }
 
