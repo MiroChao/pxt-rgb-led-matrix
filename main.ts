@@ -7,6 +7,10 @@ namespace rgbmatrix {
     //% block="show animation"
     export function animation(): void {
         let buf = pins.createBuffer(6);
+        buf[0] = 0xb4;
+        buf[1] = 2;
+        pins.i2cWriteBuffer(0x65, buf);
+
         buf[0] = 0x0c;
         buf[1] = 42;
         buf[2] = 43;
