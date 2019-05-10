@@ -42,6 +42,6 @@ namespace rgbmatrix {
     export function clearLED(): void {
         let buf = pins.createBuffer(0);
         buf[0] = 0x06;
-        pins.i2cWriteBuffer(0x65, buf);
+        pins.i2cWriteBuffer(0x65, buf,false);
     }
 }
