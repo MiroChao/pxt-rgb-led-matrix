@@ -7,10 +7,6 @@ namespace rgbmatrix {
     //% block="show animation"
     export function animation(): void {
         let buf = pins.createBuffer(6);
-        buf[0] = 0xb4;
-        buf[1] = 2;
-        pins.i2cWriteBuffer(0x65, buf);
-
         buf[0] = 0x0c;
         buf[1] = 255;
         buf[2] = 255;
@@ -19,12 +15,25 @@ namespace rgbmatrix {
         buf[5] = 1;
         pins.i2cWriteBuffer(0x65, buf);
     }
+
+    /**
+    * set orientation
+    */
+    //% blockId=orientation
+    //% block="orientation %orient|"
+    export function orientation(orient: number): void {
+        let buf = pins.createBuffer(2);
+        buf[0] = 0xb4;
+        buf[1] = orient;
+        pins.i2cWriteBuffer(0x65, buf);
+    }
+
     /**
     * show pic
     */
     //% blockId=pic
     //% block="show pic %i|"
-    export function pic(i:number): void {
+    export function pic(i: number): void {
         let buf = pins.createBuffer(5);
         buf[0] = 0x02;
         buf[1] = i;
@@ -40,8 +49,6 @@ namespace rgbmatrix {
     //% blockId=clear
     //% block="clear the led"
     export function clearLED(): void {
-        let buf = pins.createBuffer(0);
-        buf[0] = 0x06;
-        pins.i2cWriteBuffer(0x65, buf);
+        pins.i2cWriteNumber(101, 6, NumberFormat.Int8LE, false)
     }
 }
