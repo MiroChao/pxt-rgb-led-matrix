@@ -24,7 +24,7 @@ namespace rgbmatrix {
     */
     //% blockId=pic
     //% block="show pic %i|"
-    export function pic(i:number): void {
+    export function pic(i: number): void {
         let buf = pins.createBuffer(5);
         buf[0] = 0x02;
         buf[1] = i;
@@ -40,8 +40,6 @@ namespace rgbmatrix {
     //% blockId=clear
     //% block="clear the led"
     export function clearLED(): void {
-        let buf = pins.createBuffer(0);
-        buf[0] = 0x06;
-        pins.i2cWriteBuffer(0x65, buf);
+        pins.i2cWriteNumber(101, 6, NumberFormat.Int8LE, false)
     }
 }
