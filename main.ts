@@ -12,8 +12,8 @@ namespace rgbmatrix {
         pins.i2cWriteBuffer(0x65, buf);
 
         buf[0] = 0x0c;
-        buf[1] = 42;
-        buf[2] = 43;
+        buf[1] = 255;
+        buf[2] = 255;
         buf[3] = 0x88;
         buf[4] = 0x13;
         buf[5] = 1;
