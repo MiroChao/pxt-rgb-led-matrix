@@ -2,7 +2,6 @@
 #include "MicroBit.h"
 #include "grove_two_rgb_led_matrix.h"
 
-
 //% color=50 weight=80
 //% icon="\uf1eb"
 namespace grove_two_rgb_led_matrix { 
@@ -13,7 +12,7 @@ namespace grove_two_rgb_led_matrix {
     //% block="show animation $test|"
     //% test.min=0 test.max=5
     //% test.defl=0
-    void animation(number test) {
+    void animation(int test) {
         displayColorAnimation(test,5000,true);
     }
 }
