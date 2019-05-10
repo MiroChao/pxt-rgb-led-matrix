@@ -24,7 +24,7 @@ namespace rgbmatrix {
     * clear 
     */
     //% blockId=clear
-    //% block="clear led"
+    //% block="clear the led"
     export function clearLED(): void {
         let buf = pins.createBuffer(0);
         buf[0] = 0x06;
