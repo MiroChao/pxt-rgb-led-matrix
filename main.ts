@@ -19,7 +19,7 @@ enum color {
     black = 0xFF,
 }
 
-//% weight=10 color=#A5825B icon="\uf37f" block="RGB Matrix"
+//% weight=10 color=#A5825B icon="\uf00a" block="RGB Matrix"
 namespace rgbmatrix {
     /**
     * light up a line in specified color
