@@ -25,21 +25,27 @@ namespace rgbmatrix {
     * light up a line in specified color
     */
     //% blockId=line
-    //% block="row $x turn on $pickcolor"
+    //% block="led bar level $x in $pickcolor"
+    //% x.min=1 x.max=8
     export function line(x: number, pickcolor: color): void {
         let buf = pins.createBuffer(72);
+        let j = 72 - 8 * x;
+
         buf[0] = 0x05;         //I2C_CMD_DISP_CUSTOM
         buf[1] = 0xD0;         //(duration_time & 0xff); duration_time = 2000
         buf[2] = 0x07;         //((duration_time >> 8) & 0xff); duration_time = 2000
         buf[3] = 1;
         buf[4] = 1;            //frame number
-        buf[5] = 0;
-        buf[6] = 0;
-        buf[7] = 0;
+        buf[5,6,7] = 0;
 
-        for (let i = 8; i < 72; i++) {
+        for (let i = 8; i < j;i++) {
+            buf[i] = 0xff;
+        }
+
+        for (let i = j; i < 72; i++) {
             buf[i] = pickcolor;
         }
+        
 
         pins.i2cWriteBuffer(0x65, buf);
     }
