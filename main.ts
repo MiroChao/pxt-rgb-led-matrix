@@ -159,7 +159,7 @@ namespace rgbmatrix {
             buf[i] = truecolor;
         }
 
-      if (x >= 1) {
+        if (x >= 1) {
             buf[64] = 0xff;
             buf[65] = 0xff;
             buf[66] = 0xff;
@@ -219,7 +219,7 @@ namespace rgbmatrix {
     * show pic
     */
     //% blockId=pic
-    //% block="show pic %i|"
+    //% block="show picture %i|"
     export function pic(i: number): void {
         let buf = pins.createBuffer(5);
         buf[0] = 0x02;
