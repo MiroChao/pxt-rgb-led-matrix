@@ -93,6 +93,8 @@ namespace rgbmatrix {
     //% blockId=clear
     //% block="clear the led"
     export function clearLED(): void {
-        pins.i2cWriteNumber(101, 6, NumberFormat.Int8LE, false)
+        let buf = pins.createBuffer(0);
+        buf[0] = 0x06;
+        pins.i2cWriteBuffer(0x65, buf,false);
     }
 }
