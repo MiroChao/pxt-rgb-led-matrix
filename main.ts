@@ -159,7 +159,7 @@ namespace rgbmatrix {
             buf[i] = truecolor;
         }
 
-        if (x >= 1) {
+      if (x >= 1) {
             buf[64] = 0xff;
             buf[65] = 0xff;
             buf[66] = 0xff;
