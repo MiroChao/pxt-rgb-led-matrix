@@ -19,7 +19,7 @@ enum color {
     black = 0xFF,
 }
 
-//% weight=10 color=#008B00 icon="\uf136" block="rgb matrix"
+//% weight=10 color=#A5825B icon="\uf37f" block="RGB Matrix"
 namespace rgbmatrix {
     /**
     * light up a line in specified color
@@ -37,16 +37,16 @@ namespace rgbmatrix {
         buf[2] = 0x07;         //((duration_time >> 8) & 0xff); duration_time = 2000
         buf[3] = 1;
         buf[4] = 1;            //frame number
-        buf[5,6,7] = 0;
+        buf[5, 6, 7] = 0;
 
-        for (let i = 8; i < j;i++) {
+        for (let i = 8; i < j; i++) {
             buf[i] = 0xff;
         }
 
         for (let i = j; i < 72; i++) {
             buf[i] = pickcolor;
         }
-        
+
 
         pins.i2cWriteBuffer(0x65, buf);
     }
@@ -102,6 +102,6 @@ namespace rgbmatrix {
     export function clearLED(): void {
         let buf = pins.createBuffer(0);
         buf[0] = 0x06;
-        pins.i2cWriteBuffer(0x65, buf,false);
+        pins.i2cWriteBuffer(0x65, buf, false);
     }
 }
