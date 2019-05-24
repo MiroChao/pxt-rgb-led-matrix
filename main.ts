@@ -23,6 +23,7 @@ enum color {
 namespace rgbmatrix {
     /**
     * light up a line in specified color
+    * @param x eg:1
     */
     //% blockId=line
     //% block="led bar level $x in $pickcolor"
