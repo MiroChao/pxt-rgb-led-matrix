@@ -47,6 +47,58 @@ namespace rgbmatrix {
             buf[i] = pickcolor;
         }
 
+        pins.i2cWriteBuffer(0x65, buf);
+    }
+
+    /**
+    * light up a line in specified color
+    * @param x eg:1
+    */
+    //% blockId=colorline
+    //% block="led bar level $x with color $pickcolor"
+    //% x.min=1 x.max=8
+    //% pickcolor.shadow="colorNumberPicker"
+    export function colorline(x: number, pickcolor: number): void {
+        let buf = pins.createBuffer(72);
+        let j = 72 - 8 * x;
+        let truecolor: number = 0;
+
+        buf[0] = 0x05;         //I2C_CMD_DISP_CUSTOM
+        buf[1] = 0xD0;         //(duration_time & 0xff); duration_time = 2000
+        buf[2] = 0x07;         //((duration_time >> 8) & 0xff); duration_time = 2000
+        buf[3] = 1;
+        buf[4] = 1;            //frame number
+        buf[5, 6, 7] = 0;
+
+        switch (pickcolor) {
+            case 0xff0000: truecolor = 0x03;
+            case 0xff8000: truecolor = 0x19;
+            case 0xffff00: truecolor = 0x25;
+            case 0xff9da5: truecolor = 0xe7;
+
+            case 0x00ff00: truecolor = 0x55;
+            case 0xb09eff: truecolor = 0xd0;
+            case 0x00ffff: truecolor = 0x75;
+            case 0x007fff: truecolor = 0x96;
+
+            case 0x65471f: truecolor = 0xff;
+            case 0x0000ff: truecolor = 0xaa;
+            case 0x7f00ff: truecolor = 0xbf;
+            case 0xff0080: truecolor = 0xe9;
+
+            case 0xff00ff: truecolor = 0xd4;
+            case 0xffffff: truecolor = 0xfe;
+            case 0x999999: truecolor = 0xfe;
+            case 0x000000: truecolor = 0xff;
+        }
+
+        for (let i = 8; i < j; i++) {
+            buf[i] = 0xff;
+        }
+
+        for (let i = j; i < 72; i++) {
+            buf[i] = truecolor;
+        }
 
         pins.i2cWriteBuffer(0x65, buf);
     }
