@@ -92,6 +92,10 @@ namespace rgbmatrix {
             case 0x000000: truecolor = 0xff;
         }
 
+        if (pickcolor == 0xff0000) {
+            truecolor = 0x03;
+        }
+
         for (let i = 8; i < j; i++) {
             buf[i] = 0xff;
         }
