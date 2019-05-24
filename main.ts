@@ -38,7 +38,7 @@ namespace rgbmatrix {
         buf[7] = 0;
 
         for (let i = 8; i < 72; i++) {
-            buf[i] = 0x55;
+            buf[i] = pickcolor;
         }
 
         pins.i2cWriteBuffer(0x65, buf);
